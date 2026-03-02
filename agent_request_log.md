@@ -20,6 +20,8 @@ Use this format for new rows:
 
 | Date | User | Model | Request | Recap | Status | Files Changed |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-03-01 | bobwillmot | GPT-5.3-Codex | Commit and push CI fix updates | Recorded confirmation request and prepared CI workflow and log updates for commit and push. | Completed | .github/workflows/ci.yml, agent_request_log.md |
+| 2026-03-01 | bobwillmot | GPT-5.3-Codex | Fix CI | Hardened workflow by using Python 3.13, creating `test-results` before tests, and running `python -m pytest` for interpreter consistency. | Completed | .github/workflows/ci.yml, agent_request_log.md |
 | 2026-03-01 | bobwillmot | GPT-5.3-Codex | Commit and push pagination row-count updates | Prepared the latest pagination row-count and logging changes for commit and push after user confirmation. | Completed | sample.py, tests/test_sample.py, sample.html, agent_request_log.md |
 | 2026-03-01 | bobwillmot | GPT-5.3-Codex | Add number of rows control to pagination | Added a rows-per-page selector and total-row count text to HTML pagination controls, updated tests, and verified pytest passes. | Completed | sample.py, tests/test_sample.py, sample.html, agent_request_log.md |
 | 2026-03-01 | bobwillmot | GPT-5.3-Codex | Add pagination to HTML results | Added client-side pagination controls to `sample.html` export in `sample.py`, updated tests to validate pagination markup, and verified pytest passes. | Completed | sample.py, tests/test_sample.py, sample.html, agent_request_log.md |

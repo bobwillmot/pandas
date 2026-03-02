@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14"
+          python-version: "3.13"
 
       - name: Install dependencies
         run: |
@@ -23,7 +23,9 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Run pytest
-        run: pytest -q
+        run: |
+          mkdir -p test-results
+          python -m pytest
 
       - name: Upload pytest results
         if: always()
