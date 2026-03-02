@@ -14,7 +14,8 @@ For this repository, follow PEP 8 for all Python code.
 - Prefer explicit, readable names over abbreviations.
 - Include docstrings for public modules, classes, and functions.
 - Use lowercase `snake_case` for new file names when practical.
-- Avoid ALL_CAPS file names unless a tooling convention requires it.
+- Use lowercase names for all new files by default.
+- Allow uppercase only for `README.md`.
 
 ## Quality checks
 
@@ -60,3 +61,8 @@ Use this block in new projects:
 - Update and save the log automatically without prompting the user.
 - If no files are changed, still add an entry and mark files as `none`.
 ```
+
+### File naming defaults for future projects
+
+- Use lowercase names for new files by default.
+- Allow uppercase only for `README.md`.
