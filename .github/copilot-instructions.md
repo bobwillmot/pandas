@@ -2,6 +2,11 @@
 
 For this repository, follow PEP 8 for all Python code.
 
+## Project-level PEP 8 policy
+
+- Apply PEP 8 for all Python code generated or edited in this project.
+- Keep code compatible with `flake8` expectations.
+
 ## Style requirements
 
 - Use 4 spaces for indentation (no tabs).
@@ -22,6 +27,12 @@ For this repository, follow PEP 8 for all Python code.
 - Ensure generated code is compatible with `flake8` PEP 8 expectations.
 - Avoid unused imports, variables, and dead code.
 - Keep functions focused and reasonably short.
+
+## Global-level PEP 8 defaults (future projects)
+
+- Reuse this PEP 8 policy as the default for future Python projects.
+- Keep 4-space indentation, snake_case naming, and readable line length.
+- Prefer clear naming, clean imports, and docstrings for public code.
 
 ## Agent mode request tracking
 
@@ -49,6 +60,12 @@ For this repository, follow PEP 8 for all Python code.
 Use this block in new projects:
 
 ```md
+## Python style defaults
+
+- Follow PEP 8 for all Python code.
+- Use 4 spaces (no tabs), snake_case naming, and readable line lengths.
+- Keep generated code compatible with flake8 expectations.
+
 ## Agent mode request tracking
 
 - Apply this tracking policy in this repository and reuse it as the
