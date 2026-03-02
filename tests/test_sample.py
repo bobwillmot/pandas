@@ -9,22 +9,30 @@ import sample
 
 
 def test_create_sample_dataframe_shape_and_columns() -> None:
-    """It creates a DataFrame with expected shape and column names."""
+    """It creates a DataFrame with expected shape, columns, and dtypes."""
     dataframe = sample.create_sample_dataframe(rows=50, columns=10)
 
     assert dataframe.shape == (50, 10)
     assert list(dataframe.columns) == [
-        "col_1",
-        "col_2",
-        "col_3",
-        "col_4",
-        "col_5",
-        "col_6",
-        "col_7",
-        "col_8",
-        "col_9",
-        "col_10",
+        "id",
+        "score",
+        "name",
+        "is_active",
+        "signup_date",
+        "category",
+        "ratio",
+        "count_nullable",
+        "tag",
+        "priority",
     ]
+    assert pd.api.types.is_integer_dtype(dataframe["id"])
+    assert pd.api.types.is_float_dtype(dataframe["score"])
+    assert pd.api.types.is_string_dtype(dataframe["name"])
+    assert pd.api.types.is_bool_dtype(dataframe["is_active"])
+    assert pd.api.types.is_datetime64_any_dtype(dataframe["signup_date"])
+    assert pd.api.types.is_float_dtype(dataframe["ratio"])
+    assert pd.api.types.is_integer_dtype(dataframe["count_nullable"])
+    assert isinstance(dataframe["priority"].dtype, pd.CategoricalDtype)
 
 
 def test_main_writes_sample_csv(monkeypatch: pytest.MonkeyPatch,
