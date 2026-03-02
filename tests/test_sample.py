@@ -37,13 +37,36 @@ def test_create_sample_dataframe_shape_and_columns() -> None:
 
 def test_main_writes_sample_csv(monkeypatch: pytest.MonkeyPatch,
                                 tmp_path: Path) -> None:
-    """It writes a 50x10 CSV file when main is executed."""
+    """It writes CSV/HTML outputs and opens the HTML file in browser."""
     monkeypatch.chdir(tmp_path)
+
+    opened_urls = []
+
+    def fake_open(url: str) -> bool:
+        opened_urls.append(url)
+        return True
+
+    monkeypatch.setattr(sample.webbrowser, "open", fake_open)
 
     sample.main()
 
-    output_file = tmp_path / "sample.csv"
-    assert output_file.exists()
+    csv_file = tmp_path / "sample.csv"
+    html_file = tmp_path / "sample.html"
 
-    dataframe = pd.read_csv(output_file)
+    assert csv_file.exists()
+    assert html_file.exists()
+    assert opened_urls == [html_file.resolve().as_uri()]
+
+    dataframe = pd.read_csv(csv_file)
     assert dataframe.shape == (50, 10)
+
+    html_content = html_file.read_text(encoding="utf-8")
+    assert "<table" in html_content
+    assert 'id="pagination-controls"' in html_content
+    assert 'id="rows-per-page"' in html_content
+    assert 'id="row-count-info"' in html_content
+    assert "Rows per page:" in html_content
+    assert 'id="prev-page"' in html_content
+    assert 'id="next-page"' in html_content
+    assert "Page ${currentPage} of ${totalPages}" in html_content
+    assert "Total rows: ${bodyRows.length}" in html_content
