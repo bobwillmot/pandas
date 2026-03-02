@@ -83,3 +83,18 @@ Use this block in new projects:
 
 - Use lowercase names for new files by default.
 - Allow uppercase only for `README.md`.
+
+## Global project defaults (future projects)
+
+- Use this repository's current standards as the baseline defaults for
+    future projects.
+- Python style: apply PEP 8, 4-space indentation, snake_case naming,
+    readable line lengths, clean imports, and docstrings for public code.
+- Quality checks: keep generated Python compatible with flake8
+    expectations and avoid unused code.
+- File naming: default to lowercase names; allow uppercase only for
+    `README.md`.
+- Agent tracking: log each request in `agent_request_log.md` with date,
+    user, model, request summary, recap, status, and files changed.
+- Tracking behavior: newest-first ordering, automatic save without
+    prompting, and `none` when no files are changed.
